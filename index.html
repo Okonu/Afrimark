@@ -1,0 +1,140 @@
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Afrimark Survey</title>
+   <style>
+       @keyframes gradient {
+           0% { background-position: 0% 50%; }
+           50% { background-position: 100% 50%; }
+           100% { background-position: 0% 50%; }
+       }
+
+       body {
+           margin: 0;
+           font-family: 'Plus Jakarta Sans', sans-serif;
+           min-height: 100vh;
+           display: flex;
+           flex-direction: column;
+           color: white;
+           background: linear-gradient(-45deg, #0f2027, #203a43, #2c5364);
+           background-size: 400% 400%;
+           animation: gradient 15s ease infinite;
+       }
+
+       .glass {
+           background: rgba(255, 255, 255, 0.05);
+           backdrop-filter: blur(10px);
+           -webkit-backdrop-filter: blur(10px);
+           border: 1px solid rgba(255, 255, 255, 0.1);
+           border-radius: 20px;
+           padding: 2rem;
+           box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.2);
+       }
+
+       .logo {
+           position: fixed;
+           top: 2rem;
+           left: 2rem;
+           font-size: 1.5rem;
+           font-weight: bold;
+       }
+
+       .container {
+           flex: 1;
+           display: flex;
+           align-items: center;
+           justify-content: center;
+           max-width: 800px;
+           margin: 0 auto;
+           text-align: center;
+           padding: 0 20px;
+       }
+
+       .content {
+           background: rgba(255, 255, 255, 0.05);
+           backdrop-filter: blur(10px);
+           padding: 3rem;
+           border-radius: 20px;
+           border: 1px solid rgba(255, 255, 255, 0.1);
+       }
+
+       h1 {
+           font-size: 3.5rem;
+           margin-bottom: 1.5rem;
+       }
+
+       p {
+           font-size: 1.2rem;
+           line-height: 1.6;
+           opacity: 0.9;
+           margin-bottom: 2rem;
+       }
+
+       .btn {
+           background: linear-gradient(90deg, #0f2027 0%, #203a43 100%);
+           color: white;
+           padding: 1rem 2rem;
+           border-radius: 50px;
+           text-decoration: none;
+           font-weight: 500;
+           transition: transform 0.3s;
+       }
+
+       .btn:hover {
+           transform: translateY(-2px);
+           box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+       }
+
+       footer {
+          padding: 0.75rem;
+          text-align: center;
+          font-size: 0.9rem;
+          /* background: rgba(255, 255, 255, 0.05); */
+          backdrop-filter: blur(10px);
+          /* height: 10px; */
+          /* max-width: 1000px; */
+          margin: 0 auto;
+          border-radius: 10px 10px 0 0;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          gap: 1rem;
+          }
+   </style>
+</head>
+<body>
+   <div class="logo">Afrimark.</div>
+   <div class="container">
+       <div class="content">
+           <h1>Trade Credit and SMEs</h1>
+           <p>This survey explores the role of trade credit in SMEs, focusing on its impact, challenges, and opportunities. Your insights will help us better understand how trade credit influences SME operations and growth. It takes just 5-10 minutes to complete.</p>
+           <a href="#" class="btn" onclick="openSurvey()">Start Survey</a>
+       </div>
+   </div>
+   <footer style="max-width:max-content">
+       <div>Email: contact@afrimark.com</div>
+       <div>Phone: +254 700 000 000</div>
+   </footer>
+</body>
+
+
+<script>
+     function openSurvey() {
+        const surveyModal = document.createElement('div');
+        surveyModal.style.cssText = 'position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.8); backdrop-filter:blur(5px); display:flex; align-items:center; justify-content:center; z-index:1000;';
+        
+        const iframe = document.createElement('iframe');
+        iframe.src = 'https://forms.office.com/Pages/ResponsePage.aspx?id=DQSIkWdsW0yxEjajBLZtrQAAAAAAAAAAAAN__4-kaU9UOEFFTlJLUEZTTFExOE9GSFNXTlZMSUVYWS4u&embed=true';
+        iframe.style.cssText = 'width:90%; height:90%; border:none; border-radius:10px; background:white;';
+        iframe.allowFullscreen = true;
+        
+        surveyModal.onclick = e => {
+            if (e.target === surveyModal) document.body.removeChild(surveyModal);
+        };
+        
+        surveyModal.appendChild(iframe);
+        document.body.appendChild(surveyModal);
+     }
+     </script>
+</html>
